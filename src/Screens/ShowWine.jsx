@@ -1,11 +1,11 @@
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+
 
 function ShowWine(props) {
     let [wine, setWine] = useState({});
-  let { id } = useParams();
+    let { id } = useParams();
 
   const navigate = useNavigate();
 
@@ -32,9 +32,11 @@ function ShowWine(props) {
   useEffect(() => {
     getOneWineById(id);
   }, []);
+
   return (
     <>
         <div>
+        <Link to='/wine'><button>Back to Wine List</button></Link>
           <h1>{wine.name}</h1>
           <h2>vintage:</h2>
           <h3>{wine.vintage}</h3>
@@ -49,8 +51,9 @@ function ShowWine(props) {
           <h2>Notes:</h2>
           <h3>{wine.notes}</h3>
           </div>
-          <div className="d-flex justify-content-center">
-          <button onClick={() => navigate(`/edit/${wine.id}`)}>edit</button>
+          <div>
+          <button onClick={() => navigate(`/edit/${wine.id}`)}>Edit</button>
+          <button onClick={() => props.delete(wine.id)}>Delete</button>
           </div>
       </>
   )

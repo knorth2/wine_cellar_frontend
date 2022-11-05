@@ -78,14 +78,34 @@ function App() {
       });
   };
 
+  const deleteWine = (id)=>{
+    
+    fetch(baseUrl + `/api/v1/wine/${id}`,{
+      credentials: "include",
+      method:"DELETE",
+      headers:{"Content-Type":"application/json"}
+    })
+    .then(res => {
+      if(res.status === 200) {
+        return res.json()
+      } else {
+        return []
+      }
+    }).then(data => {
+      console.log(data.data)
+    })
+    getWine()
+    navigate("wine");
+  }
+
   return (
     <div className="App">
       <h1>Wine Cellar</h1>
       <Routes>
-      <Route path='home' element={<Home />}/>
-      <Route path='wine' element={<Wine wine={wine} />}/>
-      <Route path="/wine/:id" element={<ShowWine />}/>
-      <Route path="/wine/new" element ={<AddWine addWine={addWine} wine={wine}/>}/>
+      <Route path='/' element={<Home />}/>
+      <Route path='wine' element={<Wine wine={wine} delete={deleteWine}/>}/>
+      <Route path="/wine/:id" element={<ShowWine delete={deleteWine}/>}/>
+      <Route path="/new" element ={<AddWine addWine={addWine} wine={wine}/>}/>
       <Route path="/edit/:id" element={<EditWine editWine={editWine}/>}/>
       </Routes>
     </div>

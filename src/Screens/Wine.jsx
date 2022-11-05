@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Wine(props) {
     const navigate = useNavigate();
@@ -10,7 +10,7 @@ function Wine(props) {
       <table>
         <tbody>
           <tr>
-            <th>Name Name</th>
+            <th>Name</th>
             <th>Vintage</th>
             <th>Region</th>
             <th>Rating</th>
@@ -50,6 +50,7 @@ function Wine(props) {
           })}
         </tbody>
       </table>
+      <Link to='/new/'><button>Add Wine</button></Link>
       </div>
     </>
   )
