@@ -32,7 +32,7 @@ function ShowWine(props) {
   useEffect(() => {
     getOneWineById(id);
   }, []);
-
+  
   return (
     <>
         <div>
