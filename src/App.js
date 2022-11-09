@@ -30,80 +30,70 @@ function App() {
         return []
       }
     }).then(data => {
-      console.log(data.data)
+      // console.log(data.data)
       setWine(data.data)
     })
   }
 
-  const loginUser = async (e) => {
-    console.log('loginUser')
-    console.log(e.target.email.value)
+  const register = (e) => {
     e.preventDefault()
-    const url = baseUrl + '/api/v1/user/login'
-    const loginBody = {
-      username: e.target.username.value,
-      password: e.target.password.value,
-      email: e.target.email.value
-    }
-    try {
-
-      const response = await fetch(url, {
+    console.log('register username', e.target.username.value)
+    fetch(baseUrl + "/api/v1/user/register", {
         method: 'POST',
-        body: JSON.stringify(loginBody),
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        credentials: "include"
-      })
-
-      console.log(response)
-      console.log("BODY: ",response.body)
-
-      if (response.status === 200) {
-        console.log("login:",response.data)
-        setUser(true) 
-        getWine() 
-      }navigate("wine")
-    }
-    catch (err) {
-      console.log('Error => ', err);
-    }
-  }
-
-  const register = async (e) => {
-    e.preventDefault();
-    const url = baseUrl + "/api/v1/user/register";
-    try {
-      const response = await fetch(url, {
-        method: "POST",
         body: JSON.stringify({
-          username: e.target.username.value,
-          password: e.target.password.value,
+            username: e.target.username.value,
+            email: e.target.email.value,
+            password: e.target.password.value
         }),
         headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (response.status === 201) {
-        setUser(true);
-        console.log("user registered");
-        getWine();
-        navigate("login");
-      }
-    } catch (err) {
-      console.log("Error => ", err);
-    }
-  };
+            'Content-Type': 'application/json'
+        }
+    })
+    .then (res => res.json())
+    .then (resJson => {
+        getWine()
+        navigate("login")
+    })
+    
+}
 
-  const logout = (e) => {
+
+  const loginUser = (e) => {
     e.preventDefault()
+    console.log('username:', e.target.username.value)
+    console.log('password:', e.target.password.value)
+    fetch(baseUrl + "/api/v1/user/login", {
+        method: 'POST',
+        body: JSON.stringify({
+            username: e.target.username.value,
+            password: e.target.password.value
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+    })
+    .then (res => res.json())
+    .then (resJson => {
+        setUser(e.target.username.value)
+        getWine()
+        navigate("wine")
+    })
+    
+}
+
+
+  const logout = () => {
     console.log('successfully logged out')
-    fetch(baseUrl + "/api/v1/users/logout")
+    fetch(baseUrl + "/api/v1/user/logout")
+    setUser(null);
+    navigate("/")
 }
 
   useEffect(()=>{
     getWine()
   },[])
+ 
 
   const addWine =(wine)=>{
     fetch(baseUrl + "/api/v1/wine/",{
@@ -148,7 +138,6 @@ function App() {
   };
 
   const deleteWine = (id)=>{
-    
     fetch(baseUrl + `/api/v1/wine/${id}`,{
       credentials: "include",
       method:"DELETE",
@@ -166,19 +155,20 @@ function App() {
     getWine()
     navigate("wine");
   }
+  
 
   return (
     <div className="App">
       <h1>Wine Cellar</h1>
       {/* <Layout user={user} wine={wine} logout={logout}> */}
       <Routes>
-      <Route path='/' element={<Home user={user}/>}/>
+      <Route path='/' element={<Home user={user} logout={logout}/>}/>
       <Route path='/login' element={<Login login={loginUser}/>}/>
       <Route path='/register' element={<Register register={register}/>}/>
-      <Route path='wine' element={<Wine wine={wine} user={user} delete={deleteWine}/>}/>
-      <Route path="/wine/:id" element={<ShowWine user={user} delete={deleteWine}/>}/>
-      <Route path="/new" element ={<AddWine addWine={addWine} user={user} wine={wine}/>}/>
-      <Route path="/edit/:id" element={<EditWine editWine={editWine} user={user}/>}/>
+      <Route path='/wine' element={<Wine wine={wine} logout={logout} user={user} delete={deleteWine}/>}/>
+      <Route path='/wine/:id' element={<ShowWine user={user} delete={deleteWine} />}/>
+      <Route path='/new' element ={<AddWine addWine={addWine} user={user} wine={wine}/>}/>
+      <Route path='/edit/:id' element={<EditWine editWine={editWine}  user={user}/>}/>
       </Routes>
       {/* </Layout> */}
     </div>
