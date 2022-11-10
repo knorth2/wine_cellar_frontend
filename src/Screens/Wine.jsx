@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 function Wine(props) {
   const navigate = useNavigate();
-
+  console.log(props.wine)
   return (
     <>
       {props.user ? (

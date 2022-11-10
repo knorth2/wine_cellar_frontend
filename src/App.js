@@ -91,9 +91,9 @@ function App() {
     navigate("/")
 }
 
-useEffect(() => {
-  getWine() 
-}, []);
+// useEffect(() => {
+//   getWine() 
+// }, []);
 
 // useEffect(() => {
 //   const data = window.localStorage.getItem('MY_APP_STATE');
