@@ -90,9 +90,21 @@ function App() {
     navigate("/")
 }
 
-  useEffect(()=>{
-    getWine()
-  },[])
+useEffect(() => {
+  getWine(user) 
+  console.log( getWine(user))
+}, []);
+
+// useEffect(() => {
+//   const data = window.localStorage.getItem('MY_APP_STATE');
+//   console.log('data', data)
+//   if ( data !== null ) setWine(JSON.parse(data));
+// }, []);
+
+//   useEffect(()=>{
+//      window.localStorage.setItem('MY_APP_STATE', JSON.stringify(wine));
+//   console.log(wine)
+//   },[wine])
  
 
   const addWine =(wine)=>{
@@ -110,7 +122,7 @@ function App() {
         return []
       }
     }).then(data => {
-      console.log(data.data)
+      console.log('data', data.data)
       getWine()
       navigate("wine")
     })
@@ -143,16 +155,13 @@ function App() {
       method:"DELETE",
       headers:{"Content-Type":"application/json"}
     })
-    .then(res => {
-      if(res.status === 200) {
-        return res.json()
-      } else {
-        return []
-      }
-    }).then(data => {
-      console.log(data.data)
-    })
-    getWine()
+    .then (res => {
+      const copyWine = [...wine]
+      const findIndex = wine.findIndex(wine => wine.id === id)
+      // deleting dog from copyDogs array
+      copyWine.splice(findIndex,1)
+      setWine(copyWine)
+  })
     navigate("wine");
   }
   
