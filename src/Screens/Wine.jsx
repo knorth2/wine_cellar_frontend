@@ -26,7 +26,6 @@ function Wine(props) {
                 {/* <th>Edit</th>
             <th>Delete</th> */}
               </tr>
-
               {props.wine.map((wine) => {
                 return (
                   <tr key={wine.id}>

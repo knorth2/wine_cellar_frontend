@@ -44,7 +44,7 @@ function App() {
             username: e.target.username.value,
             email: e.target.email.value,
             password: e.target.password.value
-        }),
+        }), 
         headers: {
             'Content-Type': 'application/json'
         }
@@ -77,6 +77,7 @@ function App() {
     .then (resJson => {
         setUser(e.target.username.value)
         getWine()
+        console.log(getWine())
         navigate("wine")
     })
     
@@ -91,8 +92,7 @@ function App() {
 }
 
 useEffect(() => {
-  getWine(user) 
-  console.log( getWine(user))
+  getWine() 
 }, []);
 
 // useEffect(() => {
