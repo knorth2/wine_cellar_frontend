@@ -1,0 +1,73 @@
+.login {
+    background-image: url("https://i.imgur.com/0jLa81e.jpg");
+    overflow-y: scroll;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .login-container form {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.34);
+    border: 1.4px solid rgba(255, 255, 255, 1);
+    padding: 50px 50px 60px 50px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  
+  .login-container h2 {
+    color: black;
+    margin-top: 0;
+  }
+  
+  .login-container label {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: black;
+  }
+  
+  .login-container input {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.34);
+    border: 1.4px solid rgba(255, 255, 255, 1);
+    margin-left: 12px;
+    margin-bottom: 20px;
+    padding: 4px;
+    color: #62535f;
+    width: 16vw;
+  }
+  
+  .login-button {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #62535f;
+    border: none;
+    padding: 8px 20px;
+    width: 48x;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  
+  .login-button:hover {
+    background-color: rgba(98, 83, 95, 1);
+  }
+  
+  .login-container p {
+    color: black;
+    margin-top: 30px;
+    font-weight: 500px;
+    font-size: 17px;
+  }
+  
+  .register-here {
+    text-decoration: none;
+    color: #f2713a;
+    font-weight: 500;
+  }

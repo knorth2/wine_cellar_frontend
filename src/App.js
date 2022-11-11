@@ -9,6 +9,7 @@ import AddWine from './Screens/AddWine'
 import Layout from './Components/Layout'
 import Login from './Screens/Login'
 import Register from './Screens/Register'
+import Nav from './Components/Nav'
 
 
 let baseUrl = process.env.REACT_APP_BACKEND_URL;
@@ -173,7 +174,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Wine Cellar</h1>
+      
       {/* <Layout user={user} wine={wine} logout={logout}> */}
       <Routes>
       <Route path='/' element={<Home user={user} logout={logout}/>}/>
