@@ -10,13 +10,9 @@ import Layout from './Components/Layout'
 import Login from './Screens/Login'
 import Register from './Screens/Register'
 
-let baseUrl = ''
 
-if(process.env.NODE_ENV ==='development'){
-  baseUrl = 'http://localhost:8000'
-} else {
-    baseUrl = process.env.REACT_APP_BACKEND_URL;
-}
+let baseUrl = process.env.REACT_APP_BACKEND_URL;
+
 
 
 function App() {
