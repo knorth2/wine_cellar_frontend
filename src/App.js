@@ -10,7 +10,13 @@ import Layout from './Components/Layout'
 import Login from './Screens/Login'
 import Register from './Screens/Register'
 
-let baseUrl = process.env.REACT_APP_BACKEND_URL;
+let baseUrl = ''
+
+if(process.env.NODE_ENV ==='development'){
+  baseUrl = 'http://localhost:8000'
+} else {
+    baseUrl = process.env.REACT_APP_BACKEND_URL;
+}
 
 
 function App() {
@@ -20,20 +26,23 @@ function App() {
   const navigate = useNavigate();
 
   const getWine = () => {
-    fetch(baseUrl + "/api/v1/wine/",{
-      credentials: "include"
+    fetch(baseUrl + "/api/v1/wine/", {
+        credentials: "include"
     })
-    .then(res => {
-      if(res.status === 200) {
-        return res.json()
-      } else {
-        return []
-      }
-    }).then(data => {
-      // console.log(data.data)
-      setWine(data.data)
+    .then((res) => {
+        if (res.status === 200) {
+            return res.json()
+        } 
+        else {
+            return []
+        }
     })
-  }
+    .then((wine) => {
+        console.log(wine.data)
+        setWine(wine.data)
+    })
+}  
+
 
   const register = (e) => {
     e.preventDefault()
@@ -174,7 +183,7 @@ function App() {
       <Route path='/' element={<Home user={user} logout={logout}/>}/>
       <Route path='/login' element={<Login login={loginUser}/>}/>
       <Route path='/register' element={<Register register={register}/>}/>
-      <Route path='/wine' element={<Wine wine={wine} logout={logout} user={user} delete={deleteWine}/>}/>
+      <Route path='/wine' element={<Wine wine={wine} setWine={setWine} logout={logout} user={user} delete={deleteWine}/>}/>
       <Route path='/wine/:id' element={<ShowWine user={user} delete={deleteWine} />}/>
       <Route path='/new' element ={<AddWine addWine={addWine} user={user} wine={wine}/>}/>
       <Route path='/edit/:id' element={<EditWine editWine={editWine}  user={user}/>}/>
