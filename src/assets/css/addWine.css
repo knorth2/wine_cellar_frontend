@@ -1,0 +1,65 @@
+.add-wine {
+    background-image: url("https://i.imgur.com/CnyzLam.jpg");
+    overflow-y: scroll;
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .add-wine-container form {
+     display: inline-block;
+    background-color: rgba(255, 255, 255, 0.34);
+    border: 1.4px solid rgba(255, 255, 255, 1);
+    padding: 50px 50px 60px 50px;
+    margin: 0 auto;
+    /*width: 56%;
+    margin-top: 50px;
+    margin-bottom: 30px; */
+
+  }
+  
+  .add-wine-container h2 {
+    color: #ffffff;
+    margin-top: 0;
+  }
+  
+  .add-wine-container label {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #ffffff;
+    /* margin: 0 auto; */
+  }
+  
+  .add-wine-container select, input {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border: 1.4px solid rgba(255, 255, 255, 1);
+    margin-left: 12px;
+    margin-bottom: 20px;
+    padding: 4px;
+    color: #000000;
+    width: 16vw;
+    /* margin: 0 auto; */
+    text-align: center;
+  }
+  
+  .add-button {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #62535f;
+    border: none;
+    padding: 6px 18px;
+    width: 48x;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  .add-button:hover{
+    opacity: 0.5;
+  }
+  

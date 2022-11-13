@@ -1,25 +1,27 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-// import wine from '../assets/graphics/wine.jpg'
-import '../assets/css/home.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../assets/css/home.css";
+import barrels from "../assets/graphics/barrels.png";
 
 function Home(props) {
   return (
-    <div className='home'>
-    <div className='home-content'>
-        {/* <img alt='' src={wine}></img> */}
+    <div className="home">
+      <div className="home-content">
         <h1>Wine Cellar</h1>
         <br />
-        <div className='home-links'>
-          <Link to='/login'>log in</Link>
+        <div className="home-links">
+          <Link to="/login">log in</Link>
           <br />
-          <Link to='/register'>Register</Link>
-          {/* <br />
-          <Link to='/wine'>Wine</Link> */}
+          <Link to="/register">Register</Link>
         </div>
+        {props.user ? (
+          <Link to="/wine" className="home-barrel">
+            <img className="barrels-img" alt="wine-barrel" src={barrels}></img>
+          </Link>
+        ) : null}
       </div>
-      </div>
-  )
+    </div>
+  );
 }
 
-export default Home
+export default Home;

@@ -4,6 +4,7 @@ import quantity from "../utils/quantity";
 import price from "../utils/price";
 import region from "../utils/region";
 import rating from "../utils/rating";
+import '../assets/css/addWine.css';
 
 const AddWine = (props) => {
   const [wine, setWine] = useState({
@@ -33,9 +34,11 @@ const AddWine = (props) => {
   };
   return (
     <>
-      <h1>Add Wine</h1>
+     <div className='add-wine'>
+      <div className='add-wine-container'>
+      {/* <h1>Add Wine</h1> */}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">Name:</label>
         <input
           id="name"
           type="text"
@@ -43,7 +46,7 @@ const AddWine = (props) => {
           value={wine.name}
           onChange={handleChange}
         />
-        <label htmlFor="name">Vintage</label>
+        {/* <label htmlFor="name">Vintage:</label> */}
         <select
           name="vintage"
           id="vintage"
@@ -59,7 +62,7 @@ const AddWine = (props) => {
             </option>
           ))}
         </select>
-        <label htmlFor="name">Region: </label>
+        {/* <label htmlFor="name">Region: </label> */}
         <select
           name="region"
           id="region"
@@ -75,7 +78,7 @@ const AddWine = (props) => {
             </option>
           ))}
         </select>
-        <label htmlFor="name">Rating: </label>
+        {/* <label htmlFor="name">Rating: </label> */}
         <select
           name="rating"
           id="rating"
@@ -91,7 +94,7 @@ const AddWine = (props) => {
             </option>
           ))}
         </select>
-        <label htmlFor="name">price</label>
+        {/* <label htmlFor="name">Price:</label> */}
         <select
           name="price"
           id="price"
@@ -107,7 +110,7 @@ const AddWine = (props) => {
             </option>
           ))}
         </select>
-        <label htmlFor="name">quantity</label>
+        {/* <label htmlFor="name">Quantity:</label> */}
         <select
           name="quantity"
           id="quantity"
@@ -123,7 +126,7 @@ const AddWine = (props) => {
             </option>
           ))}
         </select>
-        <label>Notes</label>
+        <label>Notes:</label>
         <input
           id="notes"
           type="text"
@@ -131,8 +134,11 @@ const AddWine = (props) => {
           value={wine.notes}
           onChange={handleChange}
         />
-        <input type="submit" value="Add Wine" />
+        <br></br>
+        <button className='add-button'>Add Wine</button>
       </form>
+      </div>
+      </div>
     </>
   );
 };
