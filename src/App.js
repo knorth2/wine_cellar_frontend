@@ -23,6 +23,7 @@ function App() {
   const navigate = useNavigate();
 
   const getWine = () => {
+    console.log(baseUrl, 'baseURL')
     fetch(baseUrl + "/api/v1/wine/", {
         credentials: "include"
     })

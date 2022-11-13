@@ -1,5 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from "react-router-dom";
+import vintage from "../utils/vintage";
+import quantity from "../utils/quantity";
+import price from "../utils/price";
+import region from "../utils/region";
+import rating from "../utils/rating";
 
 const EditWine = (props) => {
     const [wine, setWine] = useState({});
@@ -48,21 +53,103 @@ const EditWine = (props) => {
         <>
             <h1>Edit Wine</h1>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Name</label>
-                <input id="name" type="text" name="name" value={wine.name} onChange={handleChange} />
-                <label htmlFor="name">Vintage</label>
-                <input id="vintage" type="text" name="vintage" value={wine.vintage} onChange={handleChange} />
-                <label >Region</label>
-                <input id="region" type="text" name="region" value={wine.region} onChange={handleChange} />
-                <label >Rating</label>
-                <input id="rating" type="text" name="rating" value={wine.rating} onChange={handleChange} />
-                <label >Price</label>
-                <input id="price" type="text" name="price" value={wine.price} onChange={handleChange} />
-                <label >Quantity</label>
-                <input id="quantity" type="text" name="quantity" value={wine.quantity} onChange={handleChange} />
-                <label >Notes</label>
-                <input id="notes" type="text" name="notes" value={wine.notes} onChange={handleChange} />
-                <input type="submit" value="Update Wine" />
+            <label htmlFor="name">Name</label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          value={wine.name}
+          onChange={handleChange}
+        />
+        <label htmlFor="name">Vintage</label>
+        <select
+          name="vintage"
+          id="vintage"
+          onChange={handleChange}
+          defaultValue="default"
+        >
+          <option disabled value="default">
+          {wine.vintage}
+          </option>
+          {vintage.map((vintage) => (
+            <option value={vintage.vintage} key={vintage.id}>
+              {vintage.vintage}
+            </option>
+          ))}
+        </select>
+        <label htmlFor="name">Region: </label>
+        <select
+          name="region"
+          id="region"
+          onChange={handleChange}
+          defaultValue="default"
+        >
+          <option disabled value="default">
+          {wine.region}
+          </option>
+          {region.map((region) => (
+            <option value={region.region} key={region.id}>
+              {region.region}
+            </option>
+          ))}
+        </select>
+        <label htmlFor="name">Rating: </label>
+        <select
+          name="rating"
+          id="rating"
+          onChange={handleChange}
+          defaultValue="default"
+        >
+          <option disabled value="default">
+          {wine.rating}
+          </option>
+          {rating.map((rating) => (
+            <option value={rating.rating} key={rating.id}>
+              {rating.rating}
+            </option>
+          ))}
+        </select>
+        <label htmlFor="name">price</label>
+        <select
+          name="price"
+          id="price"
+          onChange={handleChange}
+          defaultValue="default"
+        >
+          <option disabled value="default">
+          {wine.price}
+          </option>
+          {price.map((price) => (
+            <option value={price.price} key={price.id}>
+              {price.price}
+            </option>
+          ))}
+        </select>
+        <label htmlFor="name">quantity</label>
+        <select
+          name="quantity"
+          id="quantity"
+          onChange={handleChange}
+          defaultValue="default"
+        >
+          <option disabled value="default">
+          {wine.quantity}
+          </option>
+          {quantity.map((quantity) => (
+            <option value={quantity.quantity} key={quantity.id}>
+              {quantity.quantity}
+            </option>
+          ))}
+        </select>
+        <label>Notes</label>
+        <input
+          id="notes"
+          type="text"
+          name="notes"
+          value={wine.notes}
+          onChange={handleChange}
+        />
+        <button className='edit-button'>Update</button> 
             </form>
         </>
 

@@ -1,6 +1,8 @@
 
 import { useNavigate, Link, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import '../assets/css/showWine.css';
+import barrels from '../assets/graphics/barrels.png'
 
 
 function ShowWine(props) {
@@ -36,10 +38,13 @@ function ShowWine(props) {
   
   return (
     <>
-        <div>
-        <Link to='/wine'><button>Back to Wine List</button></Link>
+    <Link to='/wine'><button className="barrels"> <img className='barrels-img' alt='grapes' src={barrels}></img> </button></Link>
+        <div className='show-detail'>
+        <div className='show-name'>
           <h1>{wine.name}</h1>
-          <h2>vintage:</h2>
+          </div>
+          <div className="show-underline"></div>
+          <h2>Vintage: </h2>
           <h3>{wine.vintage}</h3>
           <h2>Region:</h2>
           <h3>{wine.region}</h3>
@@ -49,12 +54,12 @@ function ShowWine(props) {
           <h3>{wine.price}</h3>
           <h2>Quantity:</h2>
           <h3>{wine.quantity}</h3>
-          <h2>Notes:</h2>
-          <h3>{wine.notes}</h3>
+          <h2 >Notes:</h2>
+          <h3 className="notes">{wine.notes}</h3>
           </div>
           <div>
-          <button onClick={() => navigate(`/edit/${wine.id}`)}>Edit</button>
-          <button onClick={() => props.delete(wine.id)}>Delete</button>
+          <button className='show-button' onClick={() => navigate(`/edit/${wine.id}`)}>Update</button>
+          <button className='show-button' onClick={() => props.delete(wine.id)}>Delete</button>
           </div>
       </>
   )

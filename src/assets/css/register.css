@@ -21,6 +21,7 @@
   .register-container h2 {
     color: black;
     margin-top: 0;
+    font-family: "Poppins", sans-serif;
   }
   
   .register-container label {

@@ -21,6 +21,7 @@
   .login-container h2 {
     color: black;
     margin-top: 0;
+    font-family: "Poppins", sans-serif;
   }
   
   .login-container label {

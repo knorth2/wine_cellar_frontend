@@ -1,0 +1,18 @@
+[
+    {"id":1, "region":"Austria"},
+    {"id":2, "region":"Australia"},
+    {"id":3, "region":"Argentina"},
+    {"id":4, "region":"Chile"},
+    {"id":5, "region":"France"},
+    {"id":6, "region":"Germany"},
+    {"id":7, "region":"Italy"},
+    {"id":8, "region":"Netherlands"}, 
+    {"id":9, "region":"New Zealand"},
+    {"id":10, "region":"Portugal"},
+    {"id":11, "region":"Singapore"},
+    {"id":12, "region":"South Africa"},
+    {"id":13, "region":"Spain"},
+    {"id":14, "region":"United Kingdom"},
+    {"id":15, "region":"United States"}
+      
+]
