@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
-import barrels from '../assets/graphics/barrels.png'
+import barrels from '../assets/graphics/barrels.png';
 
 function Wine(props) {
   const navigate = useNavigate();
@@ -13,7 +13,6 @@ function Wine(props) {
           <Link to="/">
             <button className="barrels"><img className='barrels-img' alt='wine-barrel' src={barrels}></img></button>
           </Link>
-          <Link to='/'><button onClick={() => props.logout()}>Logout</button></Link>
           <h2>{props.user}</h2>
           <table>
             <tbody>

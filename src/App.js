@@ -9,11 +9,9 @@ import AddWine from './Screens/AddWine'
 import Layout from './Components/Layout'
 import Login from './Screens/Login'
 import Register from './Screens/Register'
-import Nav from './Components/Nav'
 
 
 let baseUrl = process.env.REACT_APP_BACKEND_URL;
-
 
 
 function App() {
@@ -86,10 +84,8 @@ function App() {
         getWine()
         console.log(getWine())
         navigate("wine")
-    })
-    
+    })   
 }
-
 
   const logout = () => {
     console.log('successfully logged out')
@@ -165,7 +161,6 @@ function App() {
     .then (res => {
       const copyWine = [...wine]
       const findIndex = wine.findIndex(wine => wine.id === id)
-      // deleting dog from copyDogs array
       copyWine.splice(findIndex,1)
       setWine(copyWine)
   })
@@ -176,17 +171,17 @@ function App() {
   return (
     <div className="App">
       
-      {/* <Layout user={user} wine={wine} logout={logout}> */}
+      <Layout user={user} wine={wine} logout={logout}>
       <Routes>
-      <Route path='/' element={<Home user={user} logout={logout}/>}/>
+      <Route path='/' element={<Home user={user} />}/>
       <Route path='/login' element={<Login login={loginUser}/>}/>
       <Route path='/register' element={<Register register={register}/>}/>
-      <Route path='/wine' element={<Wine wine={wine} setWine={setWine} logout={logout} user={user} delete={deleteWine}/>}/>
-      <Route path='/wine/:id' element={<ShowWine user={user} delete={deleteWine} />}/>
-      <Route path='/new' element ={<AddWine addWine={addWine} user={user} wine={wine}/>}/>
-      <Route path='/edit/:id' element={<EditWine editWine={editWine}  user={user}/>}/>
+      <Route path='/wine' element={<Wine wine={wine} user={user} />}/>
+      <Route path='/wine/:id' element={<ShowWine delete={deleteWine} />}/>
+      <Route path='/new' element ={<AddWine addWine={addWine} />}/>
+      <Route path='/edit/:id' element={<EditWine editWine={editWine} />}/>
       </Routes>
-      {/* </Layout> */}
+      </Layout>
     </div>
   );
 }
