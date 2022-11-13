@@ -37,7 +37,7 @@ function ShowWine(props) {
   
   
   return (
-    <>
+    <div className="show">
     <Link to='/wine'><button className="barrels"> <img className='barrels-img' alt='grapes' src={barrels}></img> </button></Link>
         <div className='show-detail'>
         <div className='show-name'>
@@ -54,14 +54,16 @@ function ShowWine(props) {
           <h3>{wine.price}</h3>
           <h2>Quantity:</h2>
           <h3>{wine.quantity}</h3>
-          <h2 >Notes:</h2>
+          <br></br>
+          <br></br>
+          {/* <h2 >Notes:</h2> */}
           <h3 className="notes">{wine.notes}</h3>
           </div>
           <div>
           <button className='show-button' onClick={() => navigate(`/edit/${wine.id}`)}>Update</button>
           <button className='show-button' onClick={() => props.delete(wine.id)}>Delete</button>
           </div>
-      </>
+      </div>
   )
 }
 

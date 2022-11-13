@@ -9,6 +9,7 @@ import AddWine from './Screens/AddWine'
 import Layout from './Components/Layout'
 import Login from './Screens/Login'
 import Register from './Screens/Register'
+import About from './Screens/About'
 
 
 let baseUrl = process.env.REACT_APP_BACKEND_URL;
@@ -173,10 +174,11 @@ function App() {
       
       <Layout user={user} wine={wine} logout={logout}>
       <Routes>
+      <Route path='/about' element={<About user={user} />}/>
       <Route path='/' element={<Home user={user} />}/>
       <Route path='/login' element={<Login login={loginUser}/>}/>
       <Route path='/register' element={<Register register={register}/>}/>
-      <Route path='/wine' element={<Wine wine={wine} user={user} />}/>
+      <Route path='/wine' element={<Wine wine={wine} user={user} editWine={editWine}/>}/>
       <Route path='/wine/:id' element={<ShowWine delete={deleteWine} />}/>
       <Route path='/new' element ={<AddWine addWine={addWine} />}/>
       <Route path='/edit/:id' element={<EditWine editWine={editWine} />}/>

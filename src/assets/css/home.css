@@ -57,3 +57,9 @@
   .home-content a:hover {
     background-color: rgba(242, 113, 58, 0.7);
   }
+  #home-about-link{
+    display: flex;
+    justify-content: center;
+    margin-left: 165px;
+    
+  }

@@ -1,14 +1,13 @@
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Footer from './Footer';
 
 export default function Layout({ children, user, wine, logout }) {
   let location = useLocation();
-  // let { id } = useParams();
 
   return (
     <div>
       {children}
-      {location.pathname === '/about' || location.pathname === '/wine'  ?
+      {location.pathname === '/about' || location.pathname === '/wine' || location.pathname === '/new/' ?
         <Footer
           user={user}
           wine={wine}
