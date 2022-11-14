@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useState, useParams } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import barrels from '../assets/graphics/barrels.png';
 
 function Wine(props) {
-  const navigate = useNavigate();
   console.log(props.user)
+  const navigate = useNavigate();
+  
+//  const [fave, setFave]= useState(false); 
+
   return (
     <>
       {props.user ? (
         <div>
-          <h2> Wine List </h2>
+          <h2>{props.user}'s Wine List </h2>
           <Link to="/">
             <button className="barrels"><img className='barrels-img' alt='wine-barrel' src={barrels}></img></button>
           </Link>
-          <h2>{props.user}</h2>
+          
           <table>
             <tbody>
               <tr>
@@ -23,9 +26,8 @@ function Wine(props) {
                 <th>Rating</th>
                 <th>Quantity</th>
                 <th>Price</th>
-                <th>Notes</th>
-                {/* <th>Edit</th>
-            <th>Delete</th> */}
+                {/* <th>Favorite</th> */}
+                {/* <th>Notes</th> */}
               </tr>
               {props.wine.map((wine) => {
                 return (
@@ -43,20 +45,19 @@ function Wine(props) {
                     <td>{wine.rating}</td>
                     <td>{wine.quantity}</td>
                     <td>${wine.price}</td>
-                    <td>{wine.notes}</td>
                     {/* <td>
-                  <button onClick={() => navigate(`/edit/${wine.id}`)}>
-                    edit
-                  </button>
-                </td>
-                <td>
-                  <button onClick={() => props.delete(wine.id)}>X</button>
-                </td>  */}
+                   
+                    {fave ? <p>❤️</p> : null}
+                    <button 
+                     onClick={()=> fave ? setFave(false) : setFave(true)}>🍷</button>
+                     </td> */}
+                    {/* <td>{wine.notes}</td> */}
                   </tr>
                 );
               })}
             </tbody>
           </table>
+          
           <Link to="/new/">
             <button>Add Wine</button>
           </Link>

@@ -7,6 +7,7 @@ import barrels from '../assets/graphics/barrels.png'
 
 function ShowWine(props) {
     let [wine, setWine] = useState({});
+    const [fave, setFave]= useState(false); 
     let { id } = useParams();
 
   const navigate = useNavigate();
@@ -34,14 +35,14 @@ function ShowWine(props) {
   useEffect(() => {
     getOneWineById(id);
   }, []);
-  
+ 
   
   return (
     <div className="show">
     <Link to='/wine'><button className="barrels"> <img className='barrels-img' alt='grapes' src={barrels}></img> </button></Link>
         <div className='show-detail'>
         <div className='show-name'>
-          <h1>{wine.name}</h1>
+          <h1 onClick={()=> fave ? setFave(false) : setFave(true)}>{wine.name}</h1> {fave ? <p>❤️</p> : null}         
           </div>
           <div className="show-underline"></div>
           <h2>Vintage: </h2>

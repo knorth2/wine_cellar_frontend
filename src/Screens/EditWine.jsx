@@ -53,7 +53,6 @@ const EditWine = (props) => {
 
   return (
     <>
-      {/* <h1>Edit Wine</h1> */}
       <div className="edit-wine">
         <div className="edit-wine-container">
           <form onSubmit={handleSubmit}>
