@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import vintage from "../utils/vintage";
 import quantity from "../utils/quantity";
 import price from "../utils/price";
@@ -37,6 +38,7 @@ const AddWine = (props) => {
      <div className='add-wine'>
       <div className='add-wine-container'>
       {/* <h1>Add Wine</h1> */}
+      <Link to="/wine"><h2 className="wine-list-add">Wine Cellar</h2></Link>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name:</label>
         <input

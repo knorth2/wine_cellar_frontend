@@ -40,14 +40,14 @@
     margin-left: 12px;
     margin-bottom: 20px;
     padding: 4px;
-    color: #62535f;
+    color: #575657;
     width: 16vw;
   }
   
   .login-button {
     text-decoration: none;
     color: #ffffff;
-    background-color: #62535f;
+    background-color: #575657;
     border: none;
     padding: 8px 20px;
     width: 48x;
@@ -57,7 +57,7 @@
   }
   
   .login-button:hover {
-    background-color: rgba(98, 83, 95, 1);
+    opacity: 0.5;
   }
   
   .login-container p {

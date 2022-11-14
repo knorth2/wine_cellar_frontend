@@ -52,4 +52,11 @@
     font-weight: 500;
     font-size: 15px;
   }
+
+  .wine-list-edit{
+    margin-left: 16px;
+    margin-top: 20px;
+    float: left;
+    color: white;
+  }
   

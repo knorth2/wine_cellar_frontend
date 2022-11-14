@@ -51,7 +51,7 @@
   .add-button {
     text-decoration: none;
     color: #ffffff;
-    background-color: #62535f;
+    background-color: #f2713a;
     border: none;
     padding: 6px 18px;
     width: 48x;
@@ -61,5 +61,11 @@
   }
   .add-button:hover{
     opacity: 0.5;
+  }
+  .wine-list-add{
+    margin-left: 16px;
+    margin-top: 20px;
+    float: left;
+    color: white;
   }
   

@@ -18,10 +18,10 @@
   }
   
   .about-quote-content h1 {
-    font-size: 5.5vw;
+    font-size: 5.0vw;
     margin-top: 90px;
     margin-bottom: 80px;
-    /* color: #62535f */
+    /* color: #575657 */
   }
   
   .about-quote-content img {
@@ -35,9 +35,9 @@
   }
   
   .about-content h2 {
-    color: #62535f;
+    /* color: #575657; */
     margin-bottom: 8px;
-    font-size: 3.5vw;
+    font-size: 3.2vw;
   }
   
   .about-content p {
@@ -45,6 +45,8 @@
     font-size: 16px;
     font-weight: 300;
     line-height: 34px;
+    /* width: 40%; */
+    
   }
   
   @media (max-width: 375px) {
@@ -73,7 +75,7 @@
   .get-started-button {
     text-decoration: none;
     color: #ffffff;
-    background-color: #62535f;
+    background-color: #575657;
     border: none;
     padding: 10px 20px;
     font-family: "Poppins", sans-serif;

@@ -1,6 +1,7 @@
 import React, { useState, useParams } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import barrels from '../assets/graphics/barrels.png';
+// import barrels from '../assets/graphics/barrels.png';
+import '../assets/css/wine.css';
 
 function Wine(props) {
   console.log(props.user)
@@ -11,13 +12,13 @@ function Wine(props) {
   return (
     <>
       {props.user ? (
-        <div>
-          <h2>{props.user}'s Wine List </h2>
-          <Link to="/">
+        <div className="wine-container">
+        {/* <Link to="/">
             <button className="barrels"><img className='barrels-img' alt='wine-barrel' src={barrels}></img></button>
-          </Link>
-          
-          <table>
+          </Link> */}
+          <Link to="/"><h2 className="wine-list">{props.user}'s Wine List </h2></Link>
+          <div className='profile-bar'></div>
+          <table className='wine-table'>
             <tbody>
               <tr>
                 <th>Name</th>
@@ -59,7 +60,7 @@ function Wine(props) {
           </table>
           
           <Link to="/new/">
-            <button>Add Wine</button>
+            <button className="add-wine-button">Add Wine</button>
           </Link>
         </div>
         ) : null}  

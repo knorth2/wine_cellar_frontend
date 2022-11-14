@@ -39,7 +39,10 @@ function ShowWine(props) {
   
   return (
     <div className="show">
-    <Link to='/wine'><button className="barrels"> <img className='barrels-img' alt='grapes' src={barrels}></img> </button></Link>
+    {/* <Link to='/wine'><button className="barrels"> <img className='barrels-img' alt='grapes' src={barrels}></img> </button></Link> */}
+    <Link to="/wine"><h2 className="wine-list-show">Wine Cellar</h2></Link>
+    <br></br>
+    <br></br>
         <div className='show-detail'>
         <div className='show-name'>
           <h1 onClick={()=> fave ? setFave(false) : setFave(true)}>{wine.name}</h1> {fave ? <p>❤️</p> : null}         

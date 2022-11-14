@@ -19,9 +19,9 @@ function Home(props) {
           <Link to="/wine" className="home-barrel">
             <img className="barrels-img" alt="wine-barrel" src={barrels}></img>
           </Link>
-        ) :
+        ) : null }
 
-         <Link id="home-about-link" to='/about'>about</Link>} 
+         {/* <Link id="home-about-link" to='/about'>about</Link>}  */}
       </div>
     </div>
   );
