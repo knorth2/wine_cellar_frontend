@@ -14,11 +14,11 @@ export default function About() {
       <div className='about-content'>
         <h2>Welcome to Wine Cellar</h2>
         {/* <img className='about-pin' alt='blue pin' src={bluePin}></img> */}
-        <p>Wine Cellar is an app for wine cellar management. After creating your own login, you will be able to create your own flavor profile, save favorite wines, build a virtual cellar and access all the information that you need in selecting the most appropriate products for you. </p>
+        <p>Wine Cellar is an app for wine cellar management. After creating your own login, you will be able to create your own flavor profile, save favorite wines, build a virtual cellar and access all the information that you need in selecting the most appropriate wine for you. </p>
         <Link to='/'>
           <button className='get-started-button'>get started</button>
         </Link>
-      </div>    
+      </div> 
     </div>
   )
 }

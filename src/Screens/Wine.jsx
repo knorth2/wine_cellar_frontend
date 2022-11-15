@@ -17,7 +17,7 @@ function Wine(props) {
             <button className="barrels"><img className='barrels-img' alt='wine-barrel' src={barrels}></img></button>
           </Link> */}
           <Link to="/"><h2 className="wine-list">{props.user}'s Wine List </h2></Link>
-          <div className='profile-bar'></div>
+          <div className='wine-bar'></div>
           <table className='wine-table'>
             <tbody>
               <tr>

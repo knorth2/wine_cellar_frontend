@@ -68,4 +68,7 @@
     float: left;
     color: white;
   }
+  .wine-list-add:hover{
+    opacity: 0.5;
+  }
   

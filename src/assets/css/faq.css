@@ -1,0 +1,41 @@
+.faq-header{
+    background-image: url("https://i.imgur.com/ta7qlaF.jpg");
+    overflow-y: scroll;
+    height: 30vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-bottom: solid  rgb(122, 23, 122) 5px;
+  
+}
+
+.faq-header h1{
+    margin-left: 16px;
+    margin-top: 20px;
+    float: left;
+    color: rgb(122, 23, 122);
+}
+.faq-header h1:hover{
+    opacity: 0.5;
+}
+
+.questions-container p{
+    width: 50%;
+    margin: auto;
+}
+
+.science a{
+    font-weight: 500;
+    text-decoration: none;
+    color:  rgb(122, 23, 122);
+  }
+  .science {
+    font-size: 18px;
+    margin-top: 30px;
+  }
+
+  .faq-container{
+    background-color:  rgb(242, 219, 242);
+    border-bottom: solid  rgb(122, 23, 122) 5px;
+  }

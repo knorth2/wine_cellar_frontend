@@ -57,7 +57,7 @@ const EditWine = (props) => {
         <div className="edit-wine-container">
         <Link to="/wine"><h2 className="wine-list-edit">Wine Cellar</h2></Link>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name">Name:</label>
             <input
               id="name"
               type="text"
@@ -65,7 +65,7 @@ const EditWine = (props) => {
               value={wine.name}
               onChange={handleChange}
             />
-            <label htmlFor="name">Vintage</label>
+            <label htmlFor="name">Vintage:</label>
             <select
               name="vintage"
               id="vintage"
@@ -113,7 +113,7 @@ const EditWine = (props) => {
                 </option>
               ))}
             </select>
-            <label htmlFor="name">price</label>
+            <label htmlFor="name">Price:</label>
             <select
               name="price"
               id="price"
@@ -129,7 +129,7 @@ const EditWine = (props) => {
                 </option>
               ))}
             </select>
-            <label htmlFor="name">quantity</label>
+            <label htmlFor="name">Quantity:</label>
             <select
               name="quantity"
               id="quantity"
@@ -145,7 +145,7 @@ const EditWine = (props) => {
                 </option>
               ))}
             </select>
-            <label>Notes</label>
+            <label>Notes:</label>
             <input
               id="notes"
               type="text"
@@ -153,6 +153,7 @@ const EditWine = (props) => {
               value={wine.notes}
               onChange={handleChange}
             />
+            <br></br>
             <button className="edit-button">Update</button>
           </form>
         </div>

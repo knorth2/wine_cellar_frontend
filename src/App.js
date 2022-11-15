@@ -10,6 +10,7 @@ import Layout from './Components/Layout'
 import Login from './Screens/Login'
 import Register from './Screens/Register'
 import About from './Screens/About'
+import FAQ from './Screens/FAQ'
 
 
 let baseUrl = process.env.REACT_APP_BACKEND_URL;
@@ -174,6 +175,7 @@ function App() {
       
       <Layout user={user} wine={wine} logout={logout}>
       <Routes>
+      <Route path='/faq' element={<FAQ user={user} />}/>
       <Route path='/about' element={<About user={user} />}/>
       <Route path='/' element={<Home user={user} />}/>
       <Route path='/login' element={<Login login={loginUser}/>}/>

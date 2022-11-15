@@ -55,8 +55,11 @@
 
   .wine-list-edit{
     margin-left: 16px;
-    margin-top: 20px;
+    margin-top: 30px;
     float: left;
     color: white;
+  }
+  .wine-list-edit:hover{
+    opacity: 0.5;
   }
   

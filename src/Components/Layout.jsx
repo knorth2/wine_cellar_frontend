@@ -7,7 +7,7 @@ export default function Layout({ children, user, wine, logout }) {
   return (
     <div>
       {children}
-      {location.pathname === '/about' || location.pathname === '/wine' || location.pathname === '/new/' ?
+      {location.pathname === '/about' || location.pathname === '/wine' || location.pathname === '/faq' ?
         <Footer
           user={user}
           wine={wine}
