@@ -24,14 +24,14 @@ function App() {
 
   // const verifyUser = fetch(baseUrl + "/api/v1/user/login")
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const user = await fetch(baseUrl + "/api/v1/user/login")
-      user ? setUser(user) : setUser(null)
-    }
-    fetchUser()
-    console.log(user)
-  }, [])
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     const user = await fetch(baseUrl + "/api/v1/user/login")
+  //     user ? setUser(user) : setUser(null)
+  //   }
+  //   fetchUser()
+  //   console.log(user)
+  // }, [])
 
 
 
