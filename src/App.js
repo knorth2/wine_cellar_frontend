@@ -22,25 +22,17 @@ function App() {
 
   const navigate = useNavigate();
 
+  // const verifyUser = fetch(baseUrl + "/api/v1/user/login")
 
-  const getWine = () => {
-    console.log(baseUrl, 'baseURL')
-    fetch(baseUrl + "/api/v1/wine/", {
-        credentials: "include"
-    })
-    .then((res) => {
-        if (res.status === 200) {
-            return res.json()
-        } 
-        else {
-            return []
-        }
-    })
-    .then((wine) => {
-        console.log(wine.data)
-        setWine(wine.data)
-    })
-}  
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await fetch(baseUrl + "/api/v1/user/login")
+      user ? setUser(user) : setUser(null)
+    }
+    fetchUser()
+    console.log(user)
+  }, [])
+
 
 
   const register = (e) => {
@@ -68,8 +60,8 @@ function App() {
 
   const loginUser = (e) => {
     e.preventDefault()
-    console.log('username:', e.target.username.value)
-    console.log('password:', e.target.password.value)
+    // console.log('username:', e.target.username.value)
+    // console.log('password:', e.target.password.value)
     fetch(baseUrl + "/api/v1/user/login", {
         method: 'POST',
         body: JSON.stringify({
@@ -77,9 +69,9 @@ function App() {
             password: e.target.password.value
         }),
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
         },
-        credentials: 'include'
+        credentials: "include"
     })
     .then (res => res.json())
     .then (resJson => {
@@ -97,9 +89,11 @@ function App() {
     navigate("/")
 }
 
-useEffect(() => {
-  getWine() 
-}, []);
+
+
+// useEffect(() => {
+//   loginUser() 
+// }, []);
 
 // useEffect(() => {
 //   const data = window.localStorage.getItem('MY_APP_STATE');
@@ -111,6 +105,26 @@ useEffect(() => {
 //      window.localStorage.setItem('MY_APP_STATE', JSON.stringify(wine));
 //   console.log(wine)
 //   },[wine])
+
+
+const getWine = () => {
+  // console.log(baseUrl, 'baseURL')
+  fetch(baseUrl + "/api/v1/wine/", {
+      credentials: "include"
+  })
+  .then((res) => {
+      if (res.status === 200) {
+          return res.json()
+      } 
+      else {
+          return []
+      }
+  })
+  .then((wine) => {
+      // console.log(wine.data)
+      setWine(wine.data)
+  })
+}  
  
 
   const addWine =(wine)=>{
