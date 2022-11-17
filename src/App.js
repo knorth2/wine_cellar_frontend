@@ -170,27 +170,22 @@ useEffect(() => {
     navigate("wine");
   }
   
-  let routes 
-  if (wine) routes = (
-  <Layout user={user} wine={wine} logout={logout}>
-    <Routes>
-    <Route path='/faq' element={<FAQ user={user} />}/>
-    <Route path='/about' element={<About user={user} />}/>
-    <Route path='/' element={<Home user={user} />}/>
-    <Route path='/login' element={<Login login={loginUser}/>}/>
-    <Route path='/register' element={<Register register={register}/>}/>
-    <Route path='/wine' element={<Wine wine={wine} user={user} editWine={editWine}/>}/>
-    <Route path='/wine/:id' element={<ShowWine delete={deleteWine} />}/>
-    <Route path='/new' element ={<AddWine addWine={addWine} />}/>
-    <Route path='/edit/:id' element={<EditWine editWine={editWine} />}/>
-    </Routes>
-    </Layout>)
-    else routes = <h2>loading...</h2>
 
   return (
     <div className="App">
-      {routes}
-      
+      <Layout user={user} wine={wine} logout={logout}>
+      <Routes>
+      <Route path='/faq' element={<FAQ user={user} />}/>
+      <Route path='/about' element={<About user={user} />}/>
+      <Route path='/' element={<Home user={user} />}/>
+      <Route path='/login' element={<Login login={loginUser}/>}/>
+      <Route path='/register' element={<Register register={register}/>}/>
+      <Route path='/wine' element={<Wine wine={wine} user={user} editWine={editWine}/>}/>
+      <Route path='/wine/:id' element={<ShowWine delete={deleteWine} />}/>
+      <Route path='/new' element ={<AddWine addWine={addWine} />}/>
+      <Route path='/edit/:id' element={<EditWine editWine={editWine} />}/>
+      </Routes>
+      </Layout>
     </div>
   );
 }
