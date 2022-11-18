@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+## Project Name
+Wine-Cellar
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Deployed App
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Description
+Wine Cellar is an app for wine cellar management. Created a relational database using postgreSQL in developement for data store, Flask/Python for the api/backend, and Flask-Login for user auth. I utilized React and React-Router for the frontend.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Technologies Used 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Python](https://img.shields.io/badge/-Python-05122A?style=flat&logo=python)
+![FLASK](https://img.shields.io/badge/-FLASK-05122A?style=flat&logo=FLASK)
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-05122A?style=flat&logo=postgreSQL)
+![SQLITE](https://img.shields.io/badge/-SQLITE-05122A?style=flat&logo=SQLITE)
+![SQL](https://img.shields.io/badge/-SQL-05122A?style=flat&logo=sql)
+![React](https://img.shields.io/badge/-React-05122A?style=flat&logo=react)
+![Node](https://img.shields.io/badge/-Node.js-05122A?style=flat&logo=node.js)
+![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
+![CSS3](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=css3)
+![Heroku](https://img.shields.io/badge/-Heroku-05122A?style=flat&logo=heroku)
+![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)
+![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Routes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `npm run eject`
+|#|Action|URL|HTTP Verb|
+|:---:|:---:|:---:|:---:|
+|1| Index | /wine/ | GET |
+|2| Show | /wine/< id > | GET |
+|3| Create | /wine/ | POST |
+|4| Update | /wine/< id > | PUT |
+|5| Delete | /wine/< id > | DELETE |
+|6| Register | /register | POST|
+|7| Login | /login | POST |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Models
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Screenshot 2022-11-17 at 7 26 55 PM](https://user-images.githubusercontent.com/106217931/202602761-63932557-00ec-46fd-9e0b-86f07fa41e87.png)
 
-## Learn More
+## Wireframes
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## User Stories
+As a user, I want view all my wines in my cellar.<br>
+As a user, I want to be able to add new wines that are then posted onto index page.<br>
+As a user, I want to be able to click on each wine and be directed to a detailed show page so that I can see more details about each wine.<br>
+As a user, I want to be able to edit each wine on the show page.<br>
+As a user, I want be able to 'favorite' my wines on the show page.<br>
+As a user, I want be able to delete my wine on the show page if I no longer have it in my cellar.<br>
+As a user, I want be able to register/login to my own account so that all my wines are unique to me and I’m the only user with permission to make changes to my cellar.<br>
 
-### Code Splitting
+## MVP Goals
+Functioning backend built with Flask/Python (2 tables: user, wines)<br>
+Full CRUD frontend built with React<br>
+User can create an account.<br>
+User can see/do the following on their profile:<br>
+view all wines<br>
+add wines<br>
+edit wines<br>
+delete wines<br>
+CSS styling<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Stretch Goals
+Make fully responsive on all devices<br>
+Allow user to search for all wines on index page<br>
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
