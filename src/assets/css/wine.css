@@ -12,22 +12,23 @@
 
   .wine-table {
     margin-top: 150px;
+    margin-left: 400px;
+    margin-right: 400px;
+    background-color: rgba(255, 255, 255, 0.2);
+    /* border: 1px solid rgba(255, 255, 255, 1); */
+    padding: 20px;
+    
   }
-  
-  
-  /* .wine-table a {
-    text-decoration: none;
-    color: #000000;
-    font-weight: 300;
-    font-size: 1.7vw;
-  } */
+
 
   @media (min-width: 769px) {
     .wine-table {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-evenly; 
+      
     }
   }
+
 
   .wine-bar {
     width: 100%;

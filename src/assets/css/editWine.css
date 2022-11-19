@@ -62,4 +62,8 @@
   .wine-list-edit:hover{
     opacity: 0.5;
   }
+
+  .edit-button:hover{
+    opacity: 0.5;
+  }
   

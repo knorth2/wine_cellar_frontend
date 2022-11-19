@@ -42,7 +42,7 @@ const getWine = () => {
 }  
 
 
- const [registerSuccess, setRegister] = useState(null)
+ const [registerState, setRegister] = useState(null)
  const register = (e) => {
      e.preventDefault()
      fetch(baseUrl + "/api/v1/user/register", {
@@ -68,13 +68,13 @@ const getWine = () => {
          } else {
              setUser(e.target.username.value)
              setRegister(true)
-             navigate('/login')
+             navigate("login")
          }
      })
  }
  
  
- const [loginSuccess, setLogin] = useState(null)
+ const [loginState, setLogin] = useState(null)
  const loginUser = (e) => {
      e.preventDefault(e)
      // console.log(e.target.username.value)
@@ -102,7 +102,7 @@ const getWine = () => {
          } else {
              setLogin(true)
              getWine()
-             navigate('/wine')
+             navigate("wine")
          }
      })
  }
@@ -176,28 +176,13 @@ const getWine = () => {
 
   useEffect(() => {
     getWine()
-    const loggedInUser = localStorage.getItem('user')
-    if (loggedInUser) {
-        const foundUser = JSON.parse(loggedInUser)
+    const fetchUser = localStorage.getItem('user')
+    if (fetchUser) {
+        const foundUser = JSON.parse(fetchUser)
         setUser(foundUser)
-    }
-   
+    }  
 }, [])
 
-// useEffect(() => {
-//   getWine() 
-// }, [setUser]);
-
-// useEffect(() => {
-//   const data = window.localStorage.getItem('MY_APP_STATE');
-//   console.log('data', data)
-//   if ( data !== null ) setWine(JSON.parse(data));
-// }, []);
-
-//   useEffect(()=>{
-//      window.localStorage.setItem('MY_APP_STATE', JSON.stringify(wine));
-//   console.log(wine)
-//   },[wine])
 
   return (
     <div className="App">
@@ -206,10 +191,10 @@ const getWine = () => {
       <Route path='/faq' element={<FAQ user={user} />}/>
       <Route path='/about' element={<About user={user} />}/>
       <Route path='/' element={<Home user={user} />}/>
-      <Route path='/login' element={<Login login={loginUser} loginSuccess={loginSuccess}/>}/>
-      <Route path='/register' element={<Register register={register} registerSuccess={registerSuccess}/>}/>
+      <Route path='/login' element={<Login login={loginUser} loginState={loginState}/>}/>
+      <Route path='/register' element={<Register register={register} registerState={registerState}/>}/>
       <Route path='/wine' element={<Wine wine={wine} user={user} editWine={editWine}/>}/>
-      <Route path='/wine/:id' element={<ShowWine delete={deleteWine} />}/>
+      <Route path='/wine/:id' element={<ShowWine delete={deleteWine}/>}/>
       <Route path='/new' element ={<AddWine addWine={addWine} />}/>
       <Route path='/edit/:id' element={<EditWine editWine={editWine} />}/>
       </Routes>
