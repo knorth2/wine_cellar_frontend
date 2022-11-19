@@ -58,11 +58,11 @@ function App() {
 }
 
 
-  const loginUser = (e) => {
+  const loginUser = async (e) => {
     e.preventDefault()
     // console.log('username:', e.target.username.value)
     // console.log('password:', e.target.password.value)
-    fetch(baseUrl + "/api/v1/user/login", {
+    await fetch(baseUrl + "/api/v1/user/login", {
         method: 'POST',
         body: JSON.stringify({
             username: e.target.username.value,
@@ -79,7 +79,10 @@ function App() {
         getWine()
         console.log(getWine())
         navigate("wine")
-    })   
+    })  
+    .catch((err) => {
+      console.log('Error => ', err)
+  }) 
 }
 
   const logout = () => {
@@ -90,10 +93,9 @@ function App() {
 }
 
 
-
 // useEffect(() => {
-//   loginUser() 
-// }, []);
+//   getWine() 
+// }, [setUser]);
 
 // useEffect(() => {
 //   const data = window.localStorage.getItem('MY_APP_STATE');
@@ -184,6 +186,16 @@ const getWine = () => {
     navigate("wine");
   }
   
+
+  useEffect(() => {
+    getWine()
+    const loggedInUser = localStorage.getItem('user')
+    if (loggedInUser) {
+        const foundUser = JSON.parse(loggedInUser)
+        setUser(foundUser)
+    }
+   
+}, [])
 
   return (
     <div className="App">
