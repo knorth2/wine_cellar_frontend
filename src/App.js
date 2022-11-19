@@ -22,93 +22,6 @@ function App() {
 
   const navigate = useNavigate();
 
-  // const verifyUser = fetch(baseUrl + "/api/v1/user/login")
-
-  // useEffect(() => {
-  //   const fetchUser = async () => {
-  //     const user = await fetch(baseUrl + "/api/v1/user/login")
-  //     user ? setUser(user) : setUser(null)
-  //   }
-  //   fetchUser()
-  //   console.log(user)
-  // }, [])
-
-
-
-  const register = (e) => {
-    e.preventDefault()
-    console.log('register username', e.target.username.value)
-    fetch(baseUrl + "/api/v1/user/register", {
-        method: 'POST',
-        body: JSON.stringify({
-            username: e.target.username.value,
-            email: e.target.email.value,
-            password: e.target.password.value
-        }), 
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    .then (res => res.json())
-    .then (resJson => {
-        getWine()
-        navigate("login")
-    })
-    
-}
-
-
-  const loginUser = async (e) => {
-    e.preventDefault()
-    // console.log('username:', e.target.username.value)
-    // console.log('password:', e.target.password.value)
-    await fetch(baseUrl + "/api/v1/user/login", {
-        method: 'POST',
-        body: JSON.stringify({
-            username: e.target.username.value,
-            password: e.target.password.value
-        }),
-        headers: {
-            "Content-Type": "application/json"
-        },
-        credentials: "include"
-    })
-    .then (res => res.json())
-    .then (resJson => {
-        setUser(e.target.username.value)
-        getWine()
-        console.log(getWine())
-        navigate("wine")
-    })  
-    .catch((err) => {
-      console.log('Error => ', err)
-  }) 
-}
-
-  const logout = () => {
-    console.log('successfully logged out')
-    fetch(baseUrl + "/api/v1/user/logout")
-    setUser(null);
-    navigate("/")
-}
-
-
-// useEffect(() => {
-//   getWine() 
-// }, [setUser]);
-
-// useEffect(() => {
-//   const data = window.localStorage.getItem('MY_APP_STATE');
-//   console.log('data', data)
-//   if ( data !== null ) setWine(JSON.parse(data));
-// }, []);
-
-//   useEffect(()=>{
-//      window.localStorage.setItem('MY_APP_STATE', JSON.stringify(wine));
-//   console.log(wine)
-//   },[wine])
-
-
 const getWine = () => {
   // console.log(baseUrl, 'baseURL')
   fetch(baseUrl + "/api/v1/wine/", {
@@ -123,10 +36,84 @@ const getWine = () => {
       }
   })
   .then((wine) => {
-      // console.log(wine.data)
       setWine(wine.data)
+      console.log('set wine', wine.data)
   })
 }  
+
+
+ const [registerSuccess, setRegister] = useState(null)
+ const register = (e) => {
+     e.preventDefault()
+     fetch(baseUrl + "/api/v1/user/register", {
+         method: 'POST',
+         body: JSON.stringify({
+             username: e.target.username.value,
+             email: e.target.email.value,
+             password: e.target.password.value
+         }),
+         headers: {
+             'Content-Type': 'application/json'
+         }, 
+         credentials: 'include'
+     })
+     .then (res => res.json())
+     .then (resJson => {
+         console.log(resJson)
+         setUser(resJson.data.username)
+         localStorage.setItem('user', JSON.stringify(resJson.data.username))
+         if (resJson.status.code === 401) {
+             console.log(resJson.status.message)
+             setRegister(false)
+         } else {
+             setUser(e.target.username.value)
+             setRegister(true)
+             navigate('/login')
+         }
+     })
+ }
+ 
+ 
+ const [loginSuccess, setLogin] = useState(null)
+ const loginUser = (e) => {
+     e.preventDefault(e)
+     // console.log(e.target.username.value)
+     console.log(e.target.username.value)
+     console.log(e.target.password.value)
+     fetch(baseUrl + "/api/v1/user/login", {
+         method: 'POST',
+         body: JSON.stringify({
+             username: e.target.username.value,
+             password: e.target.password.value
+         }),
+         headers: {
+             'Content-Type': 'application/json'
+         },
+         credentials: 'include'
+     })
+     .then (res => res.json())
+     .then (resJson => {
+         console.log(resJson)
+         setUser(e.target.username.value)
+         localStorage.setItem('user', JSON.stringify(resJson.data.username))
+         if (resJson.status.code === 401) {
+             console.log(resJson.status.message)
+             setLogin(false)
+         } else {
+             setLogin(true)
+             getWine()
+             navigate('/wine')
+         }
+     })
+ }
+
+   const logout = () => {
+    console.log('successfully logged out')
+    localStorage.clear()
+    fetch(baseUrl + "/api/v1/user/logout")
+    setUser(null);
+    navigate("/")
+}
  
 
   const addWine =(wine)=>{
@@ -197,6 +184,21 @@ const getWine = () => {
    
 }, [])
 
+// useEffect(() => {
+//   getWine() 
+// }, [setUser]);
+
+// useEffect(() => {
+//   const data = window.localStorage.getItem('MY_APP_STATE');
+//   console.log('data', data)
+//   if ( data !== null ) setWine(JSON.parse(data));
+// }, []);
+
+//   useEffect(()=>{
+//      window.localStorage.setItem('MY_APP_STATE', JSON.stringify(wine));
+//   console.log(wine)
+//   },[wine])
+
   return (
     <div className="App">
       <Layout user={user} wine={wine} logout={logout}>
@@ -204,8 +206,8 @@ const getWine = () => {
       <Route path='/faq' element={<FAQ user={user} />}/>
       <Route path='/about' element={<About user={user} />}/>
       <Route path='/' element={<Home user={user} />}/>
-      <Route path='/login' element={<Login login={loginUser}/>}/>
-      <Route path='/register' element={<Register register={register}/>}/>
+      <Route path='/login' element={<Login login={loginUser} loginSuccess={loginSuccess}/>}/>
+      <Route path='/register' element={<Register register={register} registerSuccess={registerSuccess}/>}/>
       <Route path='/wine' element={<Wine wine={wine} user={user} editWine={editWine}/>}/>
       <Route path='/wine/:id' element={<ShowWine delete={deleteWine} />}/>
       <Route path='/new' element ={<AddWine addWine={addWine} />}/>
