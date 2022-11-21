@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/home.css";
 import barrels from "../assets/graphics/barrels.png";
-import Footer from "../Components/Footer";
 
 function Home(props) {
   return (

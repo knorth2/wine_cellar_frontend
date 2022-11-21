@@ -11,13 +11,25 @@
   }
 
   .wine-table {
-    margin-top: 150px;
-    margin-left: 400px;
-    margin-right: 400px;
-    background-color: rgba(255, 255, 255, 0.2);
-    /* border: 1px solid rgba(255, 255, 255, 1); */
-    padding: 20px;
+    margin-top: 100px;
+    margin-left: 450px;
+    margin-right: 450px;
+    /* background-color: rgba(255, 255, 255, 0.2); */
+    border: 1px solid rgba(255, 255, 255, 1);
+    padding: 40px;
     
+  }
+
+  .category{
+    background-color: #ffffff;
+    text-decoration: underline;
+    font-size: 20px; 
+  }
+  .data{
+    font-size: 18px;
+  }
+  .wine-name:hover{
+    opacity: 0.5;
   }
 
 
@@ -48,7 +60,8 @@
       font-weight: 500;
       font-size: 15px;
       margin-top: 50px;
-      margin-bottom: 70px;
+      margin-right: 70px;
+      float: right;
     }
     
     .add-wine-button:hover {
@@ -64,3 +77,8 @@
   .wine-list:hover{
     opacity: 0.5;
   }
+
+.edit-img{
+  width: 22px;
+  height: 22px;
+}

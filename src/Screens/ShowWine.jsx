@@ -2,6 +2,7 @@ import { useNavigate, Link, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "../assets/css/showWine.css";
 
+
 function ShowWine(props) {
   const [wine, setWine] = useState({});
   const [fave, setFave] = useState(false);

@@ -2,7 +2,7 @@ import '../assets/css/about.css';
 
 import { Link } from 'react-router-dom'
 
-export default function About() {
+export default function About(props) {
   return (
     <div className='about'>
       <div className='about-quote'>
@@ -15,9 +15,11 @@ export default function About() {
         <h2>Welcome to Wine Cellar</h2>
         {/* <img className='about-pin' alt='blue pin' src={bluePin}></img> */}
         <p>Wine Cellar is an app for wine cellar management. After creating your own login, you will be able to create your own flavor profile, save favorite wines, build a virtual cellar and access all the information that you need in selecting the most appropriate wine for you. </p>
-        <Link to='/'>
+        {props.user ? (
+        <Link to='/wine'>
           <button className='get-started-button'>get started</button>
         </Link>
+        ) : <Link to='/'><button className='get-started-button'>get started</button></Link>}
       </div> 
     </div>
   )

@@ -102,7 +102,7 @@ const getWine = () => {
          } else {
              setLogin(true)
              getWine()
-             navigate("wine")
+             navigate("about")
          }
      })
  }
@@ -193,9 +193,9 @@ const getWine = () => {
       <Route path='/' element={<Home user={user} />}/>
       <Route path='/login' element={<Login login={loginUser} loginState={loginState}/>}/>
       <Route path='/register' element={<Register register={register} registerState={registerState}/>}/>
-      <Route path='/wine' element={<Wine wine={wine} user={user} editWine={editWine}/>}/>
+      <Route path='/wine' element={<Wine wine={wine} user={user} editWine={editWine} delete={deleteWine}/>}/>
       <Route path='/wine/:id' element={<ShowWine delete={deleteWine}/>}/>
-      <Route path='/new' element ={<AddWine addWine={addWine} />}/>
+      <Route path='/new' element ={<AddWine addWine={addWine}/>}/>
       <Route path='/edit/:id' element={<EditWine editWine={editWine} />}/>
       </Routes>
       </Layout>
