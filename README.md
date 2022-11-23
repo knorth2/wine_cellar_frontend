@@ -4,7 +4,7 @@ Wine-Cellar
 
 ## Deployed App
 
-
+https://wine-react-application.herokuapp.com/
 
 ## Project Description
 Wine Cellar is an app for wine cellar management. Created a relational database using postgreSQL in developement for data store, Flask/Python for the api/backend, and Flask-Login for user auth. I utilized React and React-Router for the frontend.
@@ -50,6 +50,13 @@ Wine Cellar is an app for wine cellar management. Created a relational database 
 ![Screenshot 2022-11-17 at 7 26 55 PM](https://user-images.githubusercontent.com/106217931/202602761-63932557-00ec-46fd-9e0b-86f07fa41e87.png)
 
 ## Wireframes
+![Screenshot 2022-11-21 at 2 01 12 PM](https://user-images.githubusercontent.com/106217931/203157788-75179955-474a-4322-97ae-9670b5ea4684.png)
+![Screenshot 2022-11-21 at 2 01 35 PM](https://user-images.githubusercontent.com/106217931/203157898-ebd99635-c573-4ada-92b3-0aa76879a1dc.png)
+![Screenshot 2022-11-21 at 2 02 26 PM](https://user-images.githubusercontent.com/106217931/203158017-260f672b-a427-4e7e-a846-c3401e36f9c1.png)
+![Screenshot 2022-11-21 at 2 01 50 PM](https://user-images.githubusercontent.com/106217931/203158265-6026dd58-c193-4899-b1e1-1cf49c1ca2a4.png)
+![Screenshot 2022-11-21 at 2 07 51 PM](https://user-images.githubusercontent.com/106217931/203158429-820ffc99-a3ef-4f1e-99c8-5e77fff8d32c.png)
+
+
 
 <br>
 
