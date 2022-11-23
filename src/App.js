@@ -102,7 +102,7 @@ const getWine = () => {
          } else {
              setLogin(true)
              getWine()
-             navigate("about")
+             navigate("wine")
          }
      })
  }

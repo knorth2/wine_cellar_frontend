@@ -1,7 +1,7 @@
 import { useNavigate, Link, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "../assets/css/showWine.css";
-
+import edit from "../assets/graphics/edit.png";
 
 function ShowWine(props) {
   const [wine, setWine] = useState({});
@@ -48,31 +48,34 @@ function ShowWine(props) {
           {fave ? <p>❤️</p> : null}
         </div>
         <div className="show-underline"></div>
-        <h2>Vintage: </h2>
-        <h3>{wine.vintage}</h3>
-        <h2>Region:</h2>
-        <h3>{wine.region}</h3>
-        <h2>Rating:</h2>
-        <h3>{wine.rating}</h3>
-        <h2>Price:</h2>
-        <h3>{wine.price}</h3>
-        <h2>Quantity:</h2>
-        <h3>{wine.quantity}</h3>
         <br></br>
-        <br></br>
-        {/* <h2 >Notes:</h2> */}
         <h3 className="notes">{wine.notes}</h3>
-      </div>
-      <div>
+        <table className="show-table">
+        <tbody>
+        <tr>
+        <th>Vintage</th>
+        <th>Region</th>
+        <th>Rating</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        </tr>
+        <tr>
+        <td>{wine.vintage}</td>
+        <td>{wine.region}</td>
+        <td>{wine.rating}</td>
+        <td>{wine.price}</td>
+        <td>{wine.quantity}</td>
+        <td onClick={() => props.delete(wine.id)}>🗑</td>
+        </tr>
+        </tbody> 
+        </table>
         <button
           className="show-button"
           onClick={() => navigate(`/edit/${wine.id}`)}
         >
           Update
         </button>
-        <button className="show-button" onClick={() => props.delete(wine.id)}>
-          Delete
-        </button>
+       
       </div>
     </div>
   );

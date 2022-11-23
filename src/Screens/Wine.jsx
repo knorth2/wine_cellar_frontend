@@ -52,7 +52,7 @@ function Wine(props) {
                     <td onClick={() => navigate(`/edit/${wine.id}`)}>
                       <img
                         className="edit-img"
-                        alt="wine-barrel"
+                        alt="edit-pencil"
                         src={edit}
                       ></img>
                     </td>

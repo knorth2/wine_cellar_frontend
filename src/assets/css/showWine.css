@@ -18,6 +18,9 @@
     margin: 0 auto;
     margin-top: 80px;
   }
+  .show-detail td{
+   align-items: center;
+  }
   
   .show-detail h1,h2 {
     font-size: 28px;  
@@ -41,8 +44,10 @@
   
   .show-name {
     display: flex;
+    /* justify-content: space-between;  */
     margin-left: 28px;
   }
+ 
   .show-underline{
     height: 1px;
     background-color:  black;
@@ -69,6 +74,7 @@
     font-weight: 500;
     font-size: 15px;
     margin: 10px 20px 30px 20px;
+    
   }
   
   .show-button:hover {
@@ -82,8 +88,6 @@
     color: white;
     margin-left: 2px;
     margin-right: 2px;
-    /* padding-top: 5px;
-    padding-bottom: 5px; */
     padding: 10px;
   }
   .wine-list-show{
@@ -92,4 +96,10 @@
     float: left;
     color: white;
   }
+
+    .show-table {
+      display: flex;
+      justify-content: space-evenly;
+    }
+  
  
